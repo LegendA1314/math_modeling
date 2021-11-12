@@ -1,6 +1,6 @@
-a = float(input())
-b = float(input())
-c = float(input())
+a = float(input('Введите первый коофицент '))
+b = float(input('Введите второй коофицент '))
+c = float(input('Введите третий коофицент '))
 
 d = b**2 - 4 * a * c
 

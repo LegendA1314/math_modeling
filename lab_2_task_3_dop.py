@@ -1,11 +1,9 @@
-a = input()
-b = input()
-c = input()
-d = input()
+b = int(input())
+a = 0 
 
-f = [a, b, c, d]
-print(f'Было {f}')
+while b > 0:
 
-f1 = [d, c, b, a]
-print(f'Стало {f1}')
-
+    a = a * 10 + b % 10
+    b = b // 10
+    
+print(a)
