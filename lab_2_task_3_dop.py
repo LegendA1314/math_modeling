@@ -1,4 +1,4 @@
-b = int(input())
+b = int(input("Ну вводи "))
 a = 0 
 
 while b > 0:
