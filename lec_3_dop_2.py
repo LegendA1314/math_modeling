@@ -1,16 +1,16 @@
 import numpy as np
 
-a = np.ones((5, 5))
+a = np.ones((5, 1))
 
 for i in range(5):
- for j in range(5):
+ for j in range(1):
   print("Элемент i, j:",i,j)
   a[i,j] = input()
 
-a[5, 5] = 0
+a[5, 1] = 0
 
 k = input("что вставить?")
-l = input("куда вставить?(j)")
-v = input("куда()i")
+v = input("куда(i)")
+
 
 

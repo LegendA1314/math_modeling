@@ -8,7 +8,7 @@ print ("введите элементы массива 1")
 
 for i in range(2):
  for j in range(2):
-  print("Элемент i, j:",i,j)
+  print(f"Элемент {i}, {j}: ")
   a[i,j] = input()
 
 print ("введите элементы массива 2")
