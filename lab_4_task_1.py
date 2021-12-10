@@ -1,3 +1,4 @@
 def hehe(a = 1):
-  len(a)
-  for i in range 
+  len(g)
+  for i in range (l):
+    
