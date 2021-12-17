@@ -1,11 +1,12 @@
+import numpy as np
 print('Введите число, которому соответствует фигура 1 - круг, 2 - треугольник, 3  - прямоугольник ')
 p = int(input())
 
 if p == 1:
   a = int(input())
   def krug (a):
-    v = a**2 *3.14
-    return a
+    v = a**2 * 3.14
+    return v
   print(krug(a))
 elif p == 2:
   a = int(input())
