@@ -1,32 +1,36 @@
 import matplotlib.pyplot as plt
 import numpy as np
 
-if 
-def krug (r=5):
+k = float(input('1-krug, 2-elips ')) 
 
-  x = np.arange (-2*r, 2*r, 0.1)
-  y = np.arange (-2*r, 2*r, 0.1)
+if k == 1:
+  def krug (r=5):
 
-  X, Y = np.meshgrid(x, y)
+    x = np.arange (-2*r, 2*r, 0.1)
+    y = np.arange (-2*r, 2*r, 0.1)
 
-  xy = X**2 + Y**2
+    X, Y = np.meshgrid(x, y)
 
-  plt.contour(X, Y, xy, levels=[r**2])
-  plt.axis('equal')
-  plt.show()
+    xy = X**2 + Y**2
 
-#krug()
+    plt.contour(X, Y, xy, levels=[r**2])
+    plt.axis('equal')
+    plt.show()
 
-def elip (r=5):
-  x = np.arange (-2*r, 2*r, 0.1)
-  y = np.arange (-2*r, 2*r, 0.1)
+  krug()
 
-  X, Y = np.meshgrid(x, y)
+else:
 
-  xy = X**2/2.5 + Y**2/5  
+  def elip (r=5):
+    x = np.arange (-2*r, 2*r, 0.1)
+    y = np.arange (-2*r, 2*r, 0.1)
 
-  plt.contour(X, Y, xy, levels=[r**2])
-  plt.axis('equal')
-  plt.show()
+    X, Y = np.meshgrid(x, y)
 
-elip()
+    xy = X**2/2.5 + Y**2/5  
+
+    plt.contour(X, Y, xy, levels=[r**2])
+    plt.axis('equal')
+    plt.show()
+
+  elip()
