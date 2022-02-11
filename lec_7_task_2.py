@@ -5,7 +5,7 @@ import numpy as np
 fig, ax = plt.subplots()
 krug, = plt.plot([], [], '-', color='g',)
 
-e = 20
+e = 12
 plt.axis('equal')
 ax.set_xlim(-e, e)
 ax.set_ylim(-e, e) 
