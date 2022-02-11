@@ -26,8 +26,6 @@ if a == 1:
 
   ani = FuncAnimation(fig, update,	frames=np.arange(0, 12*np.pi, 0.1), interval=100)         
 
-    
-  ani.save('123.py')
 
 else:	
   fig, ax = plt.subplots()
@@ -51,6 +49,4 @@ else:
 
   ani = FuncAnimation(fig, update,	frames=np.arange(0, 2*np.pi, 0.1), interval=100)         
 
-    
-  ani.save('123.py')
 
