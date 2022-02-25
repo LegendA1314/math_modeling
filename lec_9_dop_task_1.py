@@ -2,15 +2,15 @@ import numpy as np
 from scipy.integrate import odeint
 import matplotlib.pyplot as plt
 
-t = np.arange(1, 25, 0.1)
+t = np.arange(0, 24, 0.1)
 
 
-def razmer(S, t):
-  o = k * (s/np.pi)**0.5 * r *s * np.cos((np.pi/12)*(t-12))
-  return o
+def razmer(s, t):
+  dsdt = k * np.sqrt(s/np.pi) * e *s * np.cos((np.pi/12)*(t-12))
+  return dsdt
   
-S = 1600
-r = 1360
+S = 16
+e = 1360
 k = 2
 
 solve= odeint(razmer, S, t)
