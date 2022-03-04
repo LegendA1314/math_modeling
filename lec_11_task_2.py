@@ -7,23 +7,18 @@ frames = 200
 t = np.linspace(0, 5, frames)
 
 def diff_fumc(s, t):
-  x, v_x, y, v_y = s 
-  dxdt = v_x
-  dvxdt = 0
-  dydt = v_y
-  dvydt = -g
-  return dxdt, dvxdt, dydt, dvydt
+  x, y = s 
+  dxdt = (i-x-y) * k1
+  dydt = (i-x-y) * k2
+  return , dvxdt,  dvydt
   
 
-v = 15
-g=10
-alpha = 70 * np.pi / 180
+k1 = 0.2
+k2 = 0.5
 x0 = 0
-v_x0 = v * np.cos(alpha)
-y0 = 0
-v_y0 = v * np.sin(alpha)
-
-s0 = x0, v_x0, y0, v_y0
+y0= 0
+i = 10
+s0 = x0, y0
 
 
 def solve_func(i, key):
@@ -62,4 +57,3 @@ plt.show()
 solve = odeint(diff_fumc, s0, t )
 plt.plot(solve[:,0], solve[:,2],  'b', label = 'sdf')
 plt.show()
-

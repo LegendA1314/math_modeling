@@ -9,16 +9,18 @@ t = np.linspace(0, 5, frames)
 def diff_fumc(s, t):
   x, v_x, y, v_y = s 
   dxdt = v_x
-  dvxdt = 0
+  dvxdt = -2
   dydt = v_y
-  dvydt = -g
+  dvydt = -2
   return dxdt, dvxdt, dydt, dvydt
   
 
-v = 15
-g=10
-alpha = 70 * np.pi / 180
-x0 = 0
+
+v = 20
+m = 0.5
+g= 9.8
+alpha = 80 * np.pi / 180
+x0 = 3
 v_x0 = v * np.cos(alpha)
 y0 = 0
 v_y0 = v * np.sin(alpha)
@@ -48,7 +50,7 @@ ani = FuncAnimation(fig,
                     frames=frames,
                     interval=30)
 
-edge = 15
+edge = 25
 ax.set_xlim(0, edge)
 ax.set_ylim(0, edge)
 
@@ -62,4 +64,3 @@ plt.show()
 solve = odeint(diff_fumc, s0, t )
 plt.plot(solve[:,0], solve[:,2],  'b', label = 'sdf')
 plt.show()
-
