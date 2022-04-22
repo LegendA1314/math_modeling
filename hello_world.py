@@ -7,16 +7,21 @@ fig = plt.figure()
 ax = plt3d.Axes3D(fig)
 
 # Определение параметров кривой
-t = np.arange(0.01, 4*np.pi, 0.01)
-R = 1
+alpha = np.linspace(0,  np.pi, 100)
+beta = np.linspace(0, 2 * np.pi, 100)
+x0 = 1
+y0 = 1
+z0 = 1
+R = 5
+
 
 # Параметрическое задание пространственной кривой
-x = R * np.cos(t)
-y = R * t**0.5
-z = R * np.log10(t)
+x = R * np.outer(np.cos(alpha), np.sin(beta)) + x0
+y = R * np.outer(np.sin(alpha), np.sin(beta)) + y0
+z = R * np.outer(np.ones(np.size(alpha)),np.cos(beta)) + z0
 
 # Построение пространственной кривой
-ax.plot(x, y, z, label='Dich')
+ax.plot_surface(x, y, z)
 
 ax.legend()
 
