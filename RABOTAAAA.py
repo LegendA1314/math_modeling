@@ -13,7 +13,7 @@ T = 50000
 M = 3e35
 R = 7e10
 omega = 10
-N = 10
+N = 30
 
 fig = plt.figure()
 ax = plt3d.Axes3D(fig)
@@ -28,6 +28,7 @@ Rsol1 = Rsol * 15
 x = R * np.outer(np.sin(Q), np.cos(fi)) 
 y = R * np.outer(np.sin(Q), np.sin(fi))
 z = R * np.outer(np.cos(Q), np.ones(np.size(fi)))
+r = R
 
 for i in range(N):
   alpha = np.pi / 180 * i * 36
@@ -42,9 +43,24 @@ for i in range(N):
 
   ax.plot_surface(x, y, z, color='b') 
   plt.savefig(f'pic_{i}')
-  x = x * np.cos(alpha) - y * np.sin(alpha)
-  y = x * np.sin(alpha) + y * np.cos(alpha)
+  
+  if r > 2*R:
+    x = x * 0.001
+    y = y * 0.001
+    z = z * 0.001
+    r = r * 0.001
+  elif r < R:
+    x = x * 50
+    y = y * 50
+    z = z * 50
+    r = r * 50
+  else:
+    x = x * 1.05
+    y = y * 1.05
+    z = z * 1.05
+    r = r * 1.05
 
+  
 images = []
 filenames = [f'pic_{i}.png' for i in range(N)] 
 for filename in filenames:
