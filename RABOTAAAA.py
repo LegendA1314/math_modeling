@@ -13,7 +13,7 @@ T = 50000
 M = 3e35
 R = 7e10
 omega = 10
-N = 30
+N = 40 
 
 fig = plt.figure()
 ax = plt3d.Axes3D(fig)
@@ -30,6 +30,7 @@ y = R * np.outer(np.sin(Q), np.sin(fi))
 z = R * np.outer(np.cos(Q), np.ones(np.size(fi)))
 r = R
 key = False
+O = 2
 
 for i in range(N):
   alpha = np.pi / 180 * i * 36
@@ -45,24 +46,25 @@ for i in range(N):
   ax.plot_surface(x, y, z, color='b') 
   plt.savefig(f'pic_{i}')
   
-  if r > 2*R or key = True:
-    x = x * 0.001
-    y = y * 0.001
-    z = z * 0.001
-    r = r * 0.001
-    key = True
-  elif r < R:
+  if O >= 21 and O <= 34:
+    x = x / 1.5
+    y = y / 1.5
+    z = z / 1.5
+    r = r / 1.5
+    O += 1
+  elif O >= 35 and O <= 40:
     x = x * 50
     y = y * 50
     z = z * 50
     r = r * 50
-  elif key = False:
-    x = x * 1.05
-    y = y * 1.05
-    z = z * 1.05
-    r = r * 1.05
-
-  
+    O += 1
+  elif O <= 20:
+    x = x * 1.03
+    y = y * 1.03
+    z = z * 1.03
+    r = r * 1.03
+    O += 1
+print (O)
 images = []
 filenames = [f'pic_{i}.png' for i in range(N)] 
 for filename in filenames:
