@@ -36,45 +36,65 @@ class Tomato:
       
 
 class TomatoBush:
+  start_index_b = 0
   def  __init__(self, tomatos_count: int):
     self.tomatos = []
+    self.index_b = TomatoBush.start_index_b
+    TomatoBush.start_index_b += 1
     for _ in range(tomatos_count):
       self.tomatos.append(Tomato())
   def grow_all(self):
     for tomato in self.tomatos:
       tomato.grow()
   def all_are_ripe(self):
+    check = True
     for tomato in self.tomatos:
       if not tomato.is_ripe():
-        return False
-    return True
+        check = False
+    print(f"all_are_ripe: {self} result = {check}")
+    
+    return check
   def give_away_all(self):
-    if self.all_are_ripe():
+    if self.all_are_ripe() and len(self.tomatos):
       self.tomatos.clear()
+      #print(f'дело сделано, для куста номер {self}')
+  def __str__(self):
+    return f'{self.__class__.__name__}, idx:{self.index_b}, tomatos count:{len(self.tomatos)}'
     
 
 class Gardener:
-  def  __init__(self, name: str, bush: TomatoBush):
+  def  __init__(self, name: str, bushes: list):
+    self.bushes = bushes
     self.name = name
-    self.bush = bush
   def work(self):
-    self.bush.grow_all()
+    for bush in self.bushes:
+      bush.grow_all()
   def harvest(self):
-    if self.bush.all_are_ripe():
-      self.bush.give_away_all()
-      print('дело сделано')
+    for bush in self.bushes:
+      bush.give_away_all()
+
+  def check_all_bushes_ripe(self):
+    for bush in self.bushes:
+      if not bush.all_are_ripe():
+        return False
+    return True
+    
+        
   def knowledge_base(self):
     print(spra)
 
 # ------------------------------------------
 
-b = TomatoBush(15)
-g = Gardener("Bob", b)
+h = []
+for _  in range(random.randint(1, 5)):
+   h.append(TomatoBush(random.randint(1, 30)))
+
+g = Gardener("Bob", h)
 iter = 0
 
-print(b.all_are_ripe())
 
-while not b.all_are_ripe():
+while not g.check_all_bushes_ripe():
+  
   print(f'Iteration: {iter}')
   g.work()
   g.harvest()
