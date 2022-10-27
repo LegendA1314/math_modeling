@@ -52,7 +52,6 @@ class TomatoBush:
       if not tomato.is_ripe():
         check = False
     print(f"all_are_ripe: {self} result = {check}")
-    
     return check
   def give_away_all(self):
     if self.all_are_ripe() and len(self.tomatos):
@@ -64,6 +63,7 @@ class TomatoBush:
 
 class Gardener:
   def  __init__(self, name: str, bushes: list):
+    self.count = 0
     self.bushes = bushes
     self.name = name
   def work(self):
@@ -72,12 +72,9 @@ class Gardener:
   def harvest(self):
     for bush in self.bushes:
       bush.give_away_all()
-
-  def check_all_bushes_ripe(self):
-    for bush in self.bushes:
-      if not bush.all_are_ripe():
-        return False
-    return True
+      self.count += 1
+  def check_sobr():
+      return self.count
     
         
   def knowledge_base(self):
@@ -87,13 +84,13 @@ class Gardener:
 
 h = []
 for _  in range(random.randint(1, 5)):
-   h.append(TomatoBush(random.randint(1, 30)))
+  h.append(TomatoBush(random.randint(1, 30)))
 
 g = Gardener("Bob", h)
 iter = 0
 
 
-while not g.check_all_bushes_ripe():
+while  g.count < len(h):
   
   print(f'Iteration: {iter}')
   g.work()
